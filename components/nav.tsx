@@ -12,6 +12,8 @@ const links = [
   { href: "/programs", label: "Programs" },
   { href: "/schedule", label: "Schedule" },
   { href: "/pricing", label: "Pricing" },
+  { href: "/coaches", label: "Coaches" },
+  { href: "/events", label: "Events" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
   { href: "/shop", label: "Shop" },
@@ -69,7 +71,8 @@ export default function Nav() {
               href="https://members.kvboxing.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors duration-200 uppercase tracking-wider"
+              className="inline-flex items-center border border-border/60 text-foreground hover:border-primary/60 hover:text-primary uppercase tracking-widest text-xs px-4 py-2 rounded transition-colors duration-200"
+              style={{ fontFamily: "var(--font-anton), sans-serif" }}
             >
               My Account
             </a>
@@ -81,6 +84,17 @@ export default function Nav() {
               Book Free Trial
             </Button>
           </div>
+
+          {/* Mobile My Account — always visible, no menu needed */}
+          <a
+            href="https://members.kvboxing.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="lg:hidden inline-flex items-center border border-border/60 text-foreground hover:border-primary/60 hover:text-primary uppercase tracking-widest text-[10px] px-3 py-1.5 rounded transition-colors duration-200"
+            style={{ fontFamily: "var(--font-anton), sans-serif" }}
+          >
+            My Account
+          </a>
 
           {/* Mobile menu */}
           <Sheet open={open} onOpenChange={setOpen}>

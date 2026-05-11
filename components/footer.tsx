@@ -5,10 +5,13 @@ const navLinks = [
   { href: "/programs", label: "Programs" },
   { href: "/schedule", label: "Schedule" },
   { href: "/pricing", label: "Pricing" },
+  { href: "/coaches", label: "Coaches" },
+  { href: "/events", label: "Events" },
   { href: "/free-trial", label: "Free Trial" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
   { href: "/shop", label: "Shop" },
+  { href: "/policies", label: "Policies" },
 ];
 
 const socialLinks = [

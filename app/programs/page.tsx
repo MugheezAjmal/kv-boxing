@@ -24,6 +24,8 @@ const programs = [
     img: "/programs/little-ninjas.webp",
     badge: "Ages 3–5",
     highlight: false,
+    disabled: false,
+    storeUrl: "https://store.kvboxing.com/product-details/product/preschoollittleninjas",
   },
   {
     title: "Silver Gloves",
@@ -36,6 +38,8 @@ const programs = [
     img: "/programs/silver-gloves.webp",
     badge: "Ages 5–7",
     highlight: false,
+    disabled: false,
+    storeUrl: "https://store.kvboxing.com/product-details/product/silvergloves",
   },
   {
     title: "Amateur Boxing",
@@ -48,6 +52,8 @@ const programs = [
     img: "/programs/amateur-boxing.webp",
     badge: null,
     highlight: false,
+    disabled: false,
+    storeUrl: "https://store.kvboxing.com/product-details/product/amateurboxing",
   },
   {
     title: "Adult Boxing",
@@ -60,6 +66,8 @@ const programs = [
     img: "/programs/adult-boxing.webp",
     badge: "Most Popular",
     highlight: true,
+    disabled: false,
+    storeUrl: "https://store.kvboxing.com/product-details/product/adultboxingmembership",
   },
   {
     title: "Fight Like a Girl",
@@ -73,6 +81,8 @@ const programs = [
     img: "/programs/fight-like-a-girl.webp",
     badge: "Women Only",
     highlight: false,
+    disabled: false,
+    storeUrl: "https://store.kvboxing.com/product-details/product/fightlikeagirl",
   },
   {
     title: "Kickboxing",
@@ -85,6 +95,8 @@ const programs = [
     img: "/programs/kickboxing.webp",
     badge: null,
     highlight: false,
+    disabled: true,
+    storeUrl: null,
   },
   {
     title: "Competitive Boxing",
@@ -97,6 +109,8 @@ const programs = [
     img: "/programs/amateur-boxing.webp",
     badge: null,
     highlight: false,
+    disabled: false,
+    storeUrl: null,
   },
 ];
 
@@ -149,7 +163,7 @@ export default function ProgramsPage() {
       {/* Programs */}
       <section className="py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto space-y-10">
-          {programs.map(({ title, tagline, description, whoFor, schedule, price, img, badge, highlight }, i) => (
+          {programs.map(({ title, tagline, description, whoFor, schedule, price, img, badge, highlight, disabled, storeUrl }, i) => (
             <AnimateIn key={title} delay={i * 60}>
             <div
               className={`group grid grid-cols-1 lg:grid-cols-2 gap-0 bg-card rounded overflow-hidden hover:-translate-y-1 transition-[transform,border-color,box-shadow] duration-300 ${
@@ -216,13 +230,33 @@ export default function ProgramsPage() {
                     </span>
                   </div>
                 </div>
-                <Button
-                  render={<Link href="/free-trial" />}
-                  className="self-start bg-primary text-primary-foreground hover:bg-gold-dark uppercase tracking-widest text-xs px-6 py-2.5 h-auto transition-transform duration-200 hover:scale-[1.03] active:scale-[0.97] flex items-center gap-2"
-                  style={{ fontFamily: "var(--font-anton), sans-serif" }}
-                >
-                  Try a Class Free <ChevronRight className="h-4 w-4" />
-                </Button>
+                <div className="flex flex-wrap gap-3">
+                  <Button
+                    render={<Link href="/free-trial" />}
+                    className="bg-primary text-primary-foreground hover:bg-gold-dark uppercase tracking-widest text-xs px-6 py-2.5 h-auto transition-transform duration-200 hover:scale-[1.03] active:scale-[0.97] flex items-center gap-2"
+                    style={{ fontFamily: "var(--font-anton), sans-serif" }}
+                  >
+                    Try a Class Free <ChevronRight className="h-4 w-4" />
+                  </Button>
+                  {disabled ? (
+                    <span
+                      className="inline-flex items-center cursor-not-allowed opacity-40 bg-muted text-muted-foreground border border-border/40 uppercase tracking-widest text-xs px-6 py-2.5 rounded"
+                      style={{ fontFamily: "var(--font-anton), sans-serif" }}
+                    >
+                      Temporarily Unavailable
+                    </span>
+                  ) : storeUrl ? (
+                    <a
+                      href={storeUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center border border-primary/50 text-primary hover:bg-primary/10 uppercase tracking-widest text-xs px-6 py-2.5 rounded transition-colors duration-200"
+                      style={{ fontFamily: "var(--font-anton), sans-serif" }}
+                    >
+                      Get Membership
+                    </a>
+                  ) : null}
+                </div>
               </div>
             </div>
             </AnimateIn>

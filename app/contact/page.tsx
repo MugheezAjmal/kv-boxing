@@ -152,15 +152,18 @@ export default function ContactPage() {
               </div>
             </div>
 
-            {/* Map placeholder */}
+            {/* Google Maps */}
             <div className="bg-card border border-border/50 rounded overflow-hidden">
-              <div className="h-48 flex items-center justify-center bg-card text-muted-foreground/40">
-                {/* Replace with: <iframe src="YOUR_GOOGLE_MAPS_EMBED" width="100%" height="192" frameBorder="0" /> */}
-                <div className="text-center">
-                  <MapPin className="h-8 w-8 mx-auto mb-2 opacity-20" />
-                  <p className="text-xs">Google Maps embed goes here</p>
-                </div>
-              </div>
+              <iframe
+                src="https://www.google.com/maps?q=1+Market+St,+Quispamsis,+NB+E2E+4B1&output=embed"
+                width="100%"
+                height="240"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="KV Boxing location"
+              />
             </div>
 
             <Button

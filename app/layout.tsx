@@ -3,6 +3,7 @@ import { Anton, Montserrat } from "next/font/google";
 import "./globals.css";
 import Nav from "@/components/nav";
 import Footer from "@/components/footer";
+import NewsBanner from "@/components/news-banner";
 
 const anton = Anton({
   weight: "400",
@@ -66,6 +67,7 @@ export default function RootLayout({
       className={`${anton.variable} ${montserrat.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-background text-foreground">
+        <NewsBanner />
         <Nav />
         <main className="flex-1">{children}</main>
         <Footer />

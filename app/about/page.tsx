@@ -92,14 +92,18 @@ export default function AboutPage() {
           <div className="relative">
             <div className="relative h-80 lg:h-[420px] rounded overflow-hidden">
               <Image
-                src="https://placehold.co/800x600/141414/C9A227?text=KV+Boxing+Gym"
-                alt="KV Boxing Gym — Quispamsis, NB"
+                src="/tim-hayes.jpg"
+                alt="Tim Hayes — Head Coach, KV Boxing"
                 fill
-                className="object-cover"
+                className="object-cover object-top"
                 unoptimized
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-background/70 to-transparent" />
               <div className="absolute inset-0 bg-primary/10 mix-blend-multiply" />
+              <div className="absolute bottom-4 left-4 right-4">
+                <p className="text-foreground font-medium text-sm" style={{ fontFamily: "var(--font-anton), sans-serif" }}>TIM HAYES</p>
+                <p className="text-primary text-xs uppercase tracking-wider">Head Coach · Level 3 NCCP</p>
+              </div>
             </div>
 
             <div className="absolute -bottom-5 -right-5 bg-primary text-primary-foreground p-5 rounded hidden lg:block">
@@ -112,6 +116,38 @@ export default function AboutPage() {
               <div className="text-xs uppercase tracking-widest opacity-80 mt-0.5">
                 New Brunswick
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Head Coach */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8 border-t border-border/50">
+        <div className="max-w-7xl mx-auto">
+          <p className="text-xs uppercase tracking-widest text-primary font-medium mb-3">Head Coach</p>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+            <div>
+              <h2 className="text-4xl sm:text-5xl text-foreground leading-tight mb-4" style={{ fontFamily: "var(--font-anton), sans-serif" }}>
+                TIM HAYES
+              </h2>
+              <p className="text-primary text-sm uppercase tracking-widest mb-5">Level 3 NCCP Boxing Coach · Sport NB Lifetime Achievement Award (2018)</p>
+              <p className="text-muted-foreground leading-relaxed mb-4">
+                A decorated coach with decades of experience, Tim is a Level 3 NCCP boxing coach and recipient of the Sport NB Lifetime Achievement Award (2018). With certifications across boxing, gymnastics, trampoline, and children&apos;s fitness, Tim brings unparalleled expertise to every class and every athlete who walks through the door.
+              </p>
+              <p className="text-muted-foreground leading-relaxed">
+                Tim built KV Boxing from the ground up with one belief: that this community deserved a real boxing gym. The programs, the culture, and the results speak for themselves.
+              </p>
+            </div>
+            <div className="relative h-72 lg:h-96 rounded overflow-hidden">
+              <Image
+                src="/tim-hayes.jpg"
+                alt="Tim Hayes — Head Coach, KV Boxing"
+                fill
+                className="object-cover object-top"
+                unoptimized
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+              <div className="absolute inset-0 bg-primary/10 mix-blend-multiply" />
             </div>
           </div>
         </div>

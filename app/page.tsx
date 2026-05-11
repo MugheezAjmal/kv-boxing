@@ -118,7 +118,7 @@ export default function HomePage() {
               alt="KV Boxing fighters sparring"
               fill
               className="object-cover"
-              style={{ objectPosition: "62% 25%" }}
+              style={{ objectPosition: "62% 60%" }}
               priority
               unoptimized
             />
@@ -534,6 +534,64 @@ export default function HomePage() {
                   <div>
                     <p className="text-sm font-medium text-foreground">{name}</p>
                     <p className="text-xs text-muted-foreground/60">{since}</p>
+                  </div>
+                </div>
+              </AnimateIn>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* GOOGLE REVIEWS */}
+      <section className="py-24 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          <AnimateIn className="mb-14 text-center">
+            <p className="text-xs uppercase tracking-widest text-primary font-medium mb-3">
+              Google Reviews
+            </p>
+            <h2
+              className="text-4xl sm:text-5xl text-foreground"
+              style={{ fontFamily: "var(--font-anton), sans-serif" }}
+            >
+              WHAT MEMBERS SAY
+            </h2>
+            <div className="flex items-center justify-center gap-1.5 mt-4">
+              {Array.from({ length: 5 }).map((_, i) => (
+                <Star key={i} className="h-5 w-5 fill-primary text-primary" />
+              ))}
+              <span className="text-foreground font-semibold ml-2">5.0</span>
+              <span className="text-muted-foreground text-sm ml-1">on Google · 451 reviews</span>
+            </div>
+          </AnimateIn>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+            {[
+              {
+                name: "Susan Keller",
+                quote: "Tim Hayes and the KVGG family is one of support, fitness and the encouragement of personal success! This club, and owner, are second to none!",
+                rating: 5,
+              },
+              {
+                name: "Ian Potter",
+                quote: "Great place to get in shape and take out frustrations with proper boxing training. Excellent.",
+                rating: 5,
+              },
+            ].map(({ name, quote, rating }) => (
+              <AnimateIn key={name}>
+                <div className="bg-card border border-border/50 rounded p-6 hover:border-primary/30 hover:-translate-y-1.5 transition-[transform,border-color,box-shadow] duration-300 hover:shadow-[0_8px_32px_oklch(0.985_0_0_/_0.07)]">
+                  <div className="flex gap-1 mb-3">
+                    {Array.from({ length: rating }).map((_, i) => (
+                      <Star key={i} className="h-4 w-4 fill-primary text-primary" />
+                    ))}
+                  </div>
+                  <p className="text-sm text-muted-foreground leading-relaxed mb-4">&ldquo;{quote}&rdquo;</p>
+                  <div className="flex items-center gap-2">
+                    <div className="w-7 h-7 rounded-full bg-primary/20 flex items-center justify-center text-primary text-xs font-bold">
+                      {name[0]}
+                    </div>
+                    <div>
+                      <p className="text-sm font-medium text-foreground">{name}</p>
+                      <p className="text-xs text-muted-foreground/60">Google Review</p>
+                    </div>
                   </div>
                 </div>
               </AnimateIn>

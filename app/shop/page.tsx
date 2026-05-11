@@ -74,67 +74,19 @@ export default function ShopPage() {
         </div>
       </section>
 
-      {/* Featured products preview */}
+      {/* Store redirect CTA */}
       <section className="py-16 px-4 sm:px-6 lg:px-8 border-t border-border/50">
         <div className="max-w-7xl mx-auto">
-          <div className="flex items-center justify-between mb-10">
-            <h2
-              className="text-3xl text-foreground"
-              style={{ fontFamily: "var(--font-anton), sans-serif" }}
-            >
-              FEATURED GEAR
-            </h2>
-            <a
-              href="https://store.kvboxing.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-sm text-primary hover:underline flex items-center gap-1"
-            >
-              View all <ExternalLink className="h-3.5 w-3.5" />
-            </a>
-          </div>
-
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-5 mb-10">
-            {featured.map(({ name, price, img }) => (
-              <a
-                key={name}
-                href="https://store.kvboxing.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group bg-card border border-border/50 rounded overflow-hidden hover:border-primary/40 transition-all duration-300"
-              >
-                <div className="relative h-48 overflow-hidden">
-                  <Image
-                    src={img}
-                    alt={name}
-                    fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
-                    unoptimized
-                  />
-                  <div className="absolute inset-0 bg-primary/10 mix-blend-multiply" />
-                </div>
-                <div className="p-4">
-                  <h3 className="text-sm font-medium text-foreground mb-1">
-                    {name}
-                  </h3>
-                  <p className="text-primary text-sm font-medium">{price}</p>
-                </div>
-              </a>
-            ))}
-          </div>
-
-          {/* Redirect CTA */}
           <div className="bg-card border border-primary/20 rounded p-8 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-[0_0_40px_oklch(0.985_0_0_/_0.06)]">
             <div>
               <h3
                 className="text-2xl text-foreground mb-2"
                 style={{ fontFamily: "var(--font-anton), sans-serif" }}
               >
-                FULL STORE ON STORE.KVBOXING.COM
+                SHOP ALL PRODUCTS AT STORE.KVBOXING.COM
               </h3>
               <p className="text-muted-foreground text-sm">
-                Browse our full range of training gear, apparel, and supplements
-                at our official store.
+                Browse our full range of training gear, apparel, and supplements at our official store.
               </p>
             </div>
             <Button
@@ -145,29 +97,6 @@ export default function ShopPage() {
               Go to Store <ExternalLink className="h-4 w-4" />
             </Button>
           </div>
-        </div>
-      </section>
-
-      {/* Member discount callout */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 border-t border-border/50">
-        <div className="max-w-3xl mx-auto text-center">
-          <h2
-            className="text-3xl text-foreground mb-3"
-            style={{ fontFamily: "var(--font-anton), sans-serif" }}
-          >
-            MEMBERS GET 20% OFF
-          </h2>
-          <p className="text-muted-foreground text-sm mb-6">
-            Active KV Boxing members receive an exclusive discount on all store
-            purchases. Log in to your member portal to access your code.
-          </p>
-          <Button
-            variant="outline"
-            className="border-border/60 text-foreground hover:bg-foreground/5 uppercase tracking-widest text-xs px-6 py-2.5 h-auto"
-            render={<Link href="/pricing" />}
-          >
-            Become a Member
-          </Button>
         </div>
       </section>
     </>
