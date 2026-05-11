@@ -65,6 +65,14 @@ export default function Nav() {
 
           {/* Desktop CTA */}
           <div className="hidden lg:flex items-center gap-3">
+            <a
+              href="https://members.kvboxing.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors duration-200 uppercase tracking-wider"
+            >
+              My Account
+            </a>
             <Button
               render={<Link href="/free-trial" />}
               className="bg-primary text-primary-foreground hover:bg-gold-dark uppercase tracking-widest text-sm px-6 py-2.5 h-auto transition-transform duration-200 hover:scale-[1.03] active:scale-[0.97]"
@@ -122,6 +130,15 @@ export default function Nav() {
               >
                 Book Free Trial
               </Button>
+              <a
+                href="https://members.kvboxing.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-3 w-full flex items-center justify-center py-3 border border-border/60 rounded text-sm font-medium text-muted-foreground hover:text-foreground hover:border-border transition-colors uppercase tracking-wider"
+                onClick={() => setOpen(false)}
+              >
+                My Account
+              </a>
             </SheetContent>
           </Sheet>
         </div>

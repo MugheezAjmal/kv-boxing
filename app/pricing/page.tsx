@@ -16,6 +16,7 @@ const kidsTiers = [
     ages: "Ages 3–5",
     price: "$50",
     schedule: "Saturdays 9:30 AM",
+    storeUrl: "https://store.kvboxing.com/product-details/product/preschoollittleninjas",
     features: [
       "Saturday morning class",
       "Age-appropriate curriculum",
@@ -28,6 +29,7 @@ const kidsTiers = [
     ages: "Ages 5–7",
     price: "$60",
     schedule: "Saturdays 1:00 PM",
+    storeUrl: "https://store.kvboxing.com/product-details/product/silvergloves",
     features: [
       "Saturday afternoon class",
       "Boxing fundamentals",
@@ -40,6 +42,7 @@ const kidsTiers = [
     ages: "Ages 8+",
     price: "$60",
     schedule: "Mon, Tue, Wed at 7:00 PM",
+    storeUrl: "https://store.kvboxing.com/product-details/product/amateurboxing",
     features: [
       "3 sessions per week",
       "Boxing technique & fitness",
@@ -57,6 +60,8 @@ const adultTiers = [
     price: "$70",
     schedule: "Mon, Tue, Wed at 8:00 PM",
     highlight: true,
+    disabled: false,
+    storeUrl: "https://store.kvboxing.com/product-details/product/adultboxingmembership",
     features: [
       "3 sessions per week",
       "Non-contact boxing",
@@ -72,6 +77,8 @@ const adultTiers = [
     price: "$70",
     schedule: "5 sessions/week — mornings, evenings & Saturday",
     highlight: false,
+    disabled: false,
+    storeUrl: "https://store.kvboxing.com/product-details/product/fightlikeagirl",
     features: [
       "Multiple weekly sessions",
       "Mornings, evenings & Saturday",
@@ -87,6 +94,8 @@ const adultTiers = [
     price: "$70",
     schedule: "Mon & Wed at 8:00 PM",
     highlight: false,
+    disabled: true,
+    storeUrl: null,
     features: [
       "2 sessions per week",
       "Striking & conditioning",
@@ -174,7 +183,7 @@ export default function PricingPage() {
             KIDS &amp; YOUTH PROGRAMS
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-            {kidsTiers.map(({ name, ages, price, schedule, features }, i) => (
+            {kidsTiers.map(({ name, ages, price, schedule, features, storeUrl }, i) => (
               <AnimateIn key={name} delay={i * 80}>
               <div
                 className="flex flex-col bg-card border border-border/50 rounded p-6 hover:border-primary/30 hover:-translate-y-1.5 transition-[transform,border-color,box-shadow] duration-300 hover:shadow-[0_8px_32px_oklch(0.985_0_0_/_0.08)] h-full"
@@ -210,13 +219,15 @@ export default function PricingPage() {
                     </li>
                   ))}
                 </ul>
-                <Button
-                  render={<Link href="/free-trial" />}
-                  className="w-full bg-primary/10 text-primary hover:bg-primary/20 border border-primary/30 uppercase tracking-widest text-xs py-2.5 h-auto"
+                <a
+                  href={storeUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full inline-flex items-center justify-center bg-primary/10 text-primary hover:bg-primary/20 border border-primary/30 uppercase tracking-widest text-xs py-2.5 h-auto rounded transition-colors duration-200"
                   style={{ fontFamily: "var(--font-anton), sans-serif" }}
                 >
-                  Book Free Trial
-                </Button>
+                  Get Membership
+                </a>
               </div>
               </AnimateIn>
             ))}
@@ -234,7 +245,7 @@ export default function PricingPage() {
             ADULT PROGRAMS
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-            {adultTiers.map(({ name, tagline, price, schedule, features, highlight }, i) => (
+            {adultTiers.map(({ name, tagline, price, schedule, features, highlight, disabled, storeUrl }, i) => (
               <AnimateIn key={name} delay={i * 80}>
               <div
                 className={`flex flex-col rounded p-6 hover:-translate-y-1.5 transition-[transform,border-color,box-shadow] duration-300 h-full ${
@@ -278,17 +289,28 @@ export default function PricingPage() {
                     </li>
                   ))}
                 </ul>
-                <Button
-                  render={<Link href="/free-trial" />}
-                  className={
-                    highlight
-                      ? "w-full bg-primary text-primary-foreground hover:bg-gold-dark uppercase tracking-widest text-xs py-2.5 h-auto transition-transform duration-200 hover:scale-[1.02]"
-                      : "w-full bg-secondary text-secondary-foreground hover:bg-secondary/80 uppercase tracking-widest text-xs py-2.5 h-auto border border-border/60"
-                  }
-                  style={{ fontFamily: "var(--font-anton), sans-serif" }}
-                >
-                  Book Free Trial
-                </Button>
+                {disabled ? (
+                  <span
+                    className="w-full inline-flex items-center justify-center cursor-not-allowed opacity-40 bg-muted text-muted-foreground border border-border/40 uppercase tracking-widest text-xs py-2.5 rounded"
+                    style={{ fontFamily: "var(--font-anton), sans-serif" }}
+                  >
+                    Temporarily Unavailable
+                  </span>
+                ) : (
+                  <a
+                    href={storeUrl!}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={
+                      highlight
+                        ? "w-full inline-flex items-center justify-center bg-primary text-primary-foreground hover:bg-gold-dark uppercase tracking-widest text-xs py-2.5 h-auto rounded transition-[transform,background-color] duration-200 hover:scale-[1.02]"
+                        : "w-full inline-flex items-center justify-center bg-secondary text-secondary-foreground hover:bg-secondary/80 uppercase tracking-widest text-xs py-2.5 h-auto border border-border/60 rounded transition-colors duration-200"
+                    }
+                    style={{ fontFamily: "var(--font-anton), sans-serif" }}
+                  >
+                    Get Membership
+                  </a>
+                )}
               </div>
               </AnimateIn>
             ))}
