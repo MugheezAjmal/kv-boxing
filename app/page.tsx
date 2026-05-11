@@ -106,100 +106,152 @@ const testimonials = [
 export default function HomePage() {
   return (
     <>
-      {/* HERO */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 z-0">
-          {/* Desktop: low x% shows left portion of image → fighter (image center) lands on right half */}
-          <Image
-            src="/hero-desktop.webp"
-            alt="KV Boxing fighter training"
-            fill
-            className="object-cover hidden sm:block"
-            style={{ objectPosition: "35% 42%" }}
-            priority
-            unoptimized
-          />
-          {/* Mobile: center crop, pull down slightly to show upper fighters */}
-          <Image
-            src="/hero-mobile.jpg"
-            alt="KV Boxing fighters sparring"
-            fill
-            className="object-cover block sm:hidden"
-            style={{ objectPosition: "center 20%" }}
-            priority
-            unoptimized
-          />
-          {/* Base dark scrim */}
-          <div className="absolute inset-0 bg-black/40" />
-          {/* Desktop: heavier dark on left side where text sits */}
-          <div className="absolute inset-0 hidden sm:block bg-gradient-to-r from-black/55 via-black/10 to-transparent" />
-          {/* Both: fade bottom into page background */}
-          <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-background" />
-          {/* Subtle white glow pulse */}
-          <div
-            className="absolute inset-0 opacity-10 animate-pulse-glow"
-            style={{
-              background:
-                "radial-gradient(ellipse 70% 50% at 50% 40%, oklch(0.985 0 0 / 0.4) 0%, transparent 70%)",
-            }}
-          />
-          <svg
-            className="absolute inset-0 w-full h-full opacity-[0.03]"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <filter id="grain">
-              <feTurbulence
-                type="fractalNoise"
-                baseFrequency="0.65"
-                numOctaves="3"
-                stitchTiles="stitch"
-              />
-              <feColorMatrix type="saturate" values="0" />
-            </filter>
-            <rect width="100%" height="100%" filter="url(#grain)" />
-          </svg>
+      {/* HERO — mobile: stacked split; desktop: full-bleed overlay */}
+      <section className="overflow-hidden">
+
+        {/* ── MOBILE HERO ── */}
+        <div className="flex sm:hidden flex-col min-h-screen">
+          {/* Top: image block, face lives here */}
+          <div className="relative flex-1">
+            <Image
+              src="/hero-mobile.jpg"
+              alt="KV Boxing fighters sparring"
+              fill
+              className="object-cover"
+              style={{ objectPosition: "62% 25%" }}
+              priority
+              unoptimized
+            />
+            <div className="absolute inset-0 bg-black/30" />
+            <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-background" />
+            {/* Location badge sits at the bottom of the image block */}
+            <div className="absolute bottom-4 left-0 right-0 flex justify-center">
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded border border-primary/30 bg-black/60 text-primary text-xs font-medium uppercase tracking-widest">
+                <Flame className="h-3 w-3" />
+                <span>Quispamsis, New Brunswick</span>
+              </div>
+            </div>
+          </div>
+          {/* Bottom: solid-bg text + buttons */}
+          <div className="bg-background px-6 pt-8 pb-10 text-center">
+            <AnimateIn onMount delay={100}>
+              <h1
+                className="text-4xl text-foreground mb-6 leading-none tracking-wide"
+                style={{ fontFamily: "var(--font-anton), sans-serif" }}
+              >
+                REAL COACHES!
+                <br />
+                <span style={{ WebkitTextStroke: "2px oklch(0.985 0 0)", color: "transparent" }}>
+                  REAL FIGHTERS!
+                </span>
+                <br />
+                REAL TRAINING!
+              </h1>
+            </AnimateIn>
+            <AnimateIn onMount delay={250} className="flex flex-col items-center gap-3 w-full">
+              <Button
+                render={<Link href="/free-trial" />}
+                size="lg"
+                className="w-full bg-primary text-primary-foreground hover:bg-gold-dark uppercase tracking-widest text-base px-10 py-4 h-auto transition-transform duration-200 hover:scale-[1.03] active:scale-[0.97] shadow-[0_0_40px_oklch(0.985_0_0_/_0.3)]"
+                style={{ fontFamily: "var(--font-anton), sans-serif" }}
+              >
+                Book Your Free Trial
+              </Button>
+              <Button
+                render={<Link href="/programs" />}
+                size="lg"
+                variant="outline"
+                className="w-full border-border/60 text-foreground hover:bg-foreground/5 uppercase tracking-widest text-base px-10 py-4 h-auto"
+              >
+                View Programs
+              </Button>
+            </AnimateIn>
+          </div>
         </div>
 
-        {/* Mobile layout: content pinned to bottom-center */}
-        <div className="relative z-10 flex sm:hidden min-h-screen flex-col justify-end items-center text-center pb-16 px-6">
-          <AnimateIn onMount delay={100}>
-            <div className="inline-flex items-center gap-2 mb-5 px-3 py-1.5 rounded border border-primary/30 bg-primary/10 text-primary text-xs font-medium uppercase tracking-widest">
-              <Flame className="h-3 w-3" />
-              <span>Quispamsis, New Brunswick</span>
+        {/* ── DESKTOP HERO ── */}
+        <div className="relative hidden sm:flex min-h-screen items-center justify-center">
+          <div className="absolute inset-0 z-0">
+            <Image
+              src="/hero-desktop.webp"
+              alt="KV Boxing fighter training"
+              fill
+              className="object-cover"
+              style={{ objectPosition: "35% 42%" }}
+              priority
+              unoptimized
+            />
+            <div className="absolute inset-0 bg-black/40" />
+            <div className="absolute inset-0 bg-gradient-to-r from-black/55 via-black/10 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-background" />
+            <div
+              className="absolute inset-0 opacity-10 animate-pulse-glow"
+              style={{
+                background:
+                  "radial-gradient(ellipse 70% 50% at 50% 40%, oklch(0.985 0 0 / 0.4) 0%, transparent 70%)",
+              }}
+            />
+            <svg
+              className="absolute inset-0 w-full h-full opacity-[0.03]"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <filter id="grain">
+                <feTurbulence
+                  type="fractalNoise"
+                  baseFrequency="0.65"
+                  numOctaves="3"
+                  stitchTiles="stitch"
+                />
+                <feColorMatrix type="saturate" values="0" />
+              </filter>
+              <rect width="100%" height="100%" filter="url(#grain)" />
+            </svg>
+          </div>
+          <div className="relative z-10 flex min-h-screen flex-col justify-center w-full max-w-7xl mx-auto px-6 lg:px-8 pt-24 pb-16">
+            <div className="max-w-[52%] xl:max-w-[48%]">
+              <AnimateIn onMount delay={100}>
+                <div className="inline-flex items-center gap-2 mb-6 px-3 py-1.5 rounded border border-primary/30 bg-primary/10 text-primary text-xs font-medium uppercase tracking-widest w-fit">
+                  <Flame className="h-3 w-3" />
+                  <span>Quispamsis, New Brunswick</span>
+                </div>
+              </AnimateIn>
+              <AnimateIn onMount delay={250}>
+                <h1
+                  className="text-6xl lg:text-7xl xl:text-8xl text-foreground mb-8 leading-none tracking-wide"
+                  style={{
+                    fontFamily: "var(--font-anton), sans-serif",
+                    textShadow: "0 0 80px oklch(0.985 0 0 / 0.12)",
+                  }}
+                >
+                  REAL COACHES!
+                  <br />
+                  <span style={{ WebkitTextStroke: "2px oklch(0.985 0 0)", color: "transparent" }}>
+                    REAL FIGHTERS!
+                  </span>
+                  <br />
+                  REAL TRAINING!
+                </h1>
+              </AnimateIn>
+              <AnimateIn onMount delay={420} className="flex flex-row items-center gap-4">
+                <Button
+                  render={<Link href="/free-trial" />}
+                  size="lg"
+                  className="bg-primary text-primary-foreground hover:bg-gold-dark uppercase tracking-widest text-base px-10 py-4 h-auto transition-transform duration-200 hover:scale-[1.03] active:scale-[0.97] shadow-[0_0_40px_oklch(0.985_0_0_/_0.3)]"
+                  style={{ fontFamily: "var(--font-anton), sans-serif" }}
+                >
+                  Book Your Free Trial
+                </Button>
+                <Button
+                  render={<Link href="/programs" />}
+                  size="lg"
+                  variant="outline"
+                  className="border-border/60 text-foreground hover:bg-foreground/5 uppercase tracking-widest text-base px-10 py-4 h-auto"
+                >
+                  View Programs
+                </Button>
+              </AnimateIn>
             </div>
-          </AnimateIn>
-          <AnimateIn onMount delay={250}>
-            <h1
-              className="text-5xl text-foreground mb-6 leading-none tracking-wide"
-              style={{ fontFamily: "var(--font-anton), sans-serif" }}
-            >
-              REAL COACHES!
-              <br />
-              <span style={{ WebkitTextStroke: "2px oklch(0.985 0 0)", color: "transparent" }}>
-                REAL FIGHTERS!
-              </span>
-              <br />
-              REAL TRAINING!
-            </h1>
-          </AnimateIn>
-          <AnimateIn onMount delay={420} className="flex flex-col items-center gap-3 w-full">
-            <Button
-              render={<Link href="/free-trial" />}
-              size="lg"
-              className="w-full bg-primary text-primary-foreground hover:bg-gold-dark uppercase tracking-widest text-base px-10 py-4 h-auto transition-transform duration-200 hover:scale-[1.03] active:scale-[0.97] shadow-[0_0_40px_oklch(0.985_0_0_/_0.3)]"
-              style={{ fontFamily: "var(--font-anton), sans-serif" }}
-            >
-              Book Your Free Trial
-            </Button>
-            <Button
-              render={<Link href="/programs" />}
-              size="lg"
-              variant="outline"
-              className="w-full border-border/60 text-foreground hover:bg-foreground/5 uppercase tracking-widest text-base px-10 py-4 h-auto"
-            >
-              View Programs
-            </Button>
-          </AnimateIn>
+          </div>
         </div>
 
         {/* Desktop layout: content on left, vertically centered */}
