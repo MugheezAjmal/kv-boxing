@@ -115,7 +115,7 @@ export default function HomePage() {
             alt="KV Boxing fighter training"
             fill
             className="object-cover hidden sm:block"
-            style={{ objectPosition: "15% 42%" }}
+            style={{ objectPosition: "35% 42%" }}
             priority
             unoptimized
           />
@@ -203,48 +203,50 @@ export default function HomePage() {
         </div>
 
         {/* Desktop layout: content on left, vertically centered */}
-        <div className="relative z-10 hidden sm:flex min-h-screen flex-col justify-center max-w-7xl mx-auto px-6 lg:px-8 pt-24 pb-16">
-          <AnimateIn onMount delay={100}>
-            <div className="inline-flex items-center gap-2 mb-6 px-3 py-1.5 rounded border border-primary/30 bg-primary/10 text-primary text-xs font-medium uppercase tracking-widest w-fit">
-              <Flame className="h-3 w-3" />
-              <span>Quispamsis, New Brunswick</span>
-            </div>
-          </AnimateIn>
-          <AnimateIn onMount delay={250}>
-            <h1
-              className="text-7xl lg:text-8xl xl:text-9xl text-foreground mb-8 leading-none tracking-wide"
-              style={{
-                fontFamily: "var(--font-anton), sans-serif",
-                textShadow: "0 0 80px oklch(0.985 0 0 / 0.12)",
-              }}
-            >
-              REAL COACHES!
-              <br />
-              <span style={{ WebkitTextStroke: "2px oklch(0.985 0 0)", color: "transparent" }}>
-                REAL FIGHTERS!
-              </span>
-              <br />
-              REAL TRAINING!
-            </h1>
-          </AnimateIn>
-          <AnimateIn onMount delay={420} className="flex flex-row items-center gap-4">
-            <Button
-              render={<Link href="/free-trial" />}
-              size="lg"
-              className="bg-primary text-primary-foreground hover:bg-gold-dark uppercase tracking-widest text-base px-10 py-4 h-auto transition-transform duration-200 hover:scale-[1.03] active:scale-[0.97] shadow-[0_0_40px_oklch(0.985_0_0_/_0.3)]"
-              style={{ fontFamily: "var(--font-anton), sans-serif" }}
-            >
-              Book Your Free Trial
-            </Button>
-            <Button
-              render={<Link href="/programs" />}
-              size="lg"
-              variant="outline"
-              className="border-border/60 text-foreground hover:bg-foreground/5 uppercase tracking-widest text-base px-10 py-4 h-auto"
-            >
-              View Programs
-            </Button>
-          </AnimateIn>
+        <div className="relative z-10 hidden sm:flex min-h-screen flex-col justify-center w-full max-w-7xl mx-auto px-6 lg:px-8 pt-24 pb-16">
+          <div className="max-w-[52%] xl:max-w-[48%]">
+            <AnimateIn onMount delay={100}>
+              <div className="inline-flex items-center gap-2 mb-6 px-3 py-1.5 rounded border border-primary/30 bg-primary/10 text-primary text-xs font-medium uppercase tracking-widest w-fit">
+                <Flame className="h-3 w-3" />
+                <span>Quispamsis, New Brunswick</span>
+              </div>
+            </AnimateIn>
+            <AnimateIn onMount delay={250}>
+              <h1
+                className="text-6xl lg:text-7xl xl:text-8xl text-foreground mb-8 leading-none tracking-wide"
+                style={{
+                  fontFamily: "var(--font-anton), sans-serif",
+                  textShadow: "0 0 80px oklch(0.985 0 0 / 0.12)",
+                }}
+              >
+                REAL COACHES!
+                <br />
+                <span style={{ WebkitTextStroke: "2px oklch(0.985 0 0)", color: "transparent" }}>
+                  REAL FIGHTERS!
+                </span>
+                <br />
+                REAL TRAINING!
+              </h1>
+            </AnimateIn>
+            <AnimateIn onMount delay={420} className="flex flex-row items-center gap-4">
+              <Button
+                render={<Link href="/free-trial" />}
+                size="lg"
+                className="bg-primary text-primary-foreground hover:bg-gold-dark uppercase tracking-widest text-base px-10 py-4 h-auto transition-transform duration-200 hover:scale-[1.03] active:scale-[0.97] shadow-[0_0_40px_oklch(0.985_0_0_/_0.3)]"
+                style={{ fontFamily: "var(--font-anton), sans-serif" }}
+              >
+                Book Your Free Trial
+              </Button>
+              <Button
+                render={<Link href="/programs" />}
+                size="lg"
+                variant="outline"
+                className="border-border/60 text-foreground hover:bg-foreground/5 uppercase tracking-widest text-base px-10 py-4 h-auto"
+              >
+                View Programs
+              </Button>
+            </AnimateIn>
+          </div>
         </div>
       </section>
 
