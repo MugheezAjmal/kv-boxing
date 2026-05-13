@@ -113,7 +113,7 @@ export default function SchedulePage() {
                 Book a Class Online
               </p>
             </div>
-            <BookingWidget minHeight={700} />
+            <BookingWidget minHeight={800} />
           </div>
 
           {/* Weekly overview */}

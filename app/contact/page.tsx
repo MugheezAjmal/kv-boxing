@@ -113,10 +113,10 @@ export default function ContactPage() {
                     Email
                   </p>
                   <a
-                    href="mailto:info@kvboxing.com"
+                    href="mailto:kvboxing3@gmail.com"
                     className="text-foreground text-sm hover:text-primary transition-colors"
                   >
-                    info@kvboxing.com
+                    kvboxing3@gmail.com
                   </a>
                 </div>
               </div>

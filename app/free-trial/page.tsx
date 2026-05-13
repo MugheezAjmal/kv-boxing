@@ -19,7 +19,7 @@ const reassurances = [
 export default function FreeTrialPage() {
   return (
     <>
-      <section className="min-h-screen relative pt-24 pb-16 px-4 sm:px-6 lg:px-8 flex items-start">
+      <section className="relative pt-24 pb-16 px-4 sm:px-6 lg:px-8">
         <div
           className="absolute inset-0 opacity-10 pointer-events-none"
           style={{
@@ -29,7 +29,7 @@ export default function FreeTrialPage() {
         />
 
         <div className="relative w-full max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start pt-8">
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.6fr] gap-10 lg:gap-16 items-start pt-8">
             {/* Left: copy + reassurances */}
             <div>
               <p className="text-xs uppercase tracking-widest text-primary font-medium mb-4">
@@ -68,10 +68,10 @@ export default function FreeTrialPage() {
                 <p className="text-sm text-muted-foreground">
                   Questions? Email us at{" "}
                   <a
-                    href="mailto:info@kvboxing.com"
+                    href="mailto:kvboxing3@gmail.com"
                     className="text-primary hover:underline"
                   >
-                    info@kvboxing.com
+                    kvboxing3@gmail.com
                   </a>
                 </p>
               </div>
@@ -84,7 +84,7 @@ export default function FreeTrialPage() {
                   Select a Class &amp; Time
                 </p>
               </div>
-              <BookingWidget minHeight={600} />
+              <BookingWidget minHeight={800} />
             </div>
           </div>
         </div>

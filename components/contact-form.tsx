@@ -9,12 +9,29 @@ import { Label } from "@/components/ui/label";
 
 export default function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState(false);
   const [form, setForm] = useState({ name: "", email: "", phone: "", message: "" });
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    // Replace with actual form submission (GHL form, Resend, etc.)
-    setSubmitted(true);
+    setError(false);
+    try {
+      const res = await fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams({
+          "form-name": "contact",
+          ...form,
+        }).toString(),
+      });
+      if (res.ok) {
+        setSubmitted(true);
+      } else {
+        setError(true);
+      }
+    } catch {
+      setError(true);
+    }
   }
 
   if (submitted) {
@@ -40,7 +57,22 @@ export default function ContactForm() {
 
   return (
     <div className="bg-card border border-border/50 rounded p-8">
-      <form onSubmit={handleSubmit} className="space-y-5">
+      {error && (
+        <p className="text-sm text-red-400 mb-4">
+          Something went wrong — please email us directly at{" "}
+          <a href="mailto:kvboxing3@gmail.com" className="underline">
+            kvboxing3@gmail.com
+          </a>
+          .
+        </p>
+      )}
+      <form
+        onSubmit={handleSubmit}
+        name="contact"
+        data-netlify="true"
+        className="space-y-5"
+      >
+        <input type="hidden" name="form-name" value="contact" />
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div className="space-y-1.5">
             <Label

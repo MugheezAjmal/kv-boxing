@@ -102,10 +102,10 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="mailto:info@kvboxing.com"
+                  href="mailto:kvboxing3@gmail.com"
                   className="hover:text-foreground transition-colors"
                 >
-                  info@kvboxing.com
+                  kvboxing3@gmail.com
                 </a>
               </li>
               <li className="pt-1">
