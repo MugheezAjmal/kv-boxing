@@ -135,6 +135,15 @@ export default function Footer() {
             >
               Terms of Service
             </Link>
+            <span className="opacity-40">·</span>
+            <a
+              href="https://yourmustmarketing.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-muted-foreground transition-colors"
+            >
+              Powered by Must Marketing
+            </a>
           </div>
         </div>
       </div>
