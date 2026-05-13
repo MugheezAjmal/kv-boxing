@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { CheckCircle } from "lucide-react";
+import BookingWidget from "@/components/booking-widget";
 
 export const metadata: Metadata = {
   title: "Book Your Free Trial",
@@ -78,37 +79,12 @@ export default function FreeTrialPage() {
 
             {/* Right: GHL calendar embed */}
             <div className="bg-card border border-border/50 rounded overflow-hidden">
-              <div className="bg-surface-elevated border-b border-border/50 px-6 py-4">
+              <div className="border-b border-border/50 px-6 py-4">
                 <p className="text-xs uppercase tracking-widest text-muted-foreground font-medium">
                   Select a Class &amp; Time
                 </p>
               </div>
-
-              {/*
-                Replace this div with your GHL calendar embed:
-                <iframe
-                  src="YOUR_GHL_FREE_TRIAL_CALENDAR_URL"
-                  width="100%"
-                  height="600"
-                  frameBorder="0"
-                  title="Book Free Trial"
-                />
-              */}
-              <div className="flex flex-col items-center justify-center py-24 px-8 text-center">
-                <div
-                  className="text-4xl text-primary/20 mb-4"
-                  style={{ fontFamily: "var(--font-anton), sans-serif" }}
-                >
-                  BOOK HERE
-                </div>
-                <p className="text-muted-foreground mb-2 text-sm">
-                  GHL calendar booking widget goes here.
-                </p>
-                <p className="text-muted-foreground/60 text-xs max-w-sm">
-                  Replace this with your GoHighLevel free trial calendar embed
-                  (iframe or JS widget).
-                </p>
-              </div>
+              <BookingWidget minHeight={600} />
             </div>
           </div>
         </div>

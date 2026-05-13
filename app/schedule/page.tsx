@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import BookingWidget from "@/components/booking-widget";
 
 export const metadata: Metadata = {
   title: "Schedule",
@@ -112,30 +113,7 @@ export default function SchedulePage() {
                 Book a Class Online
               </p>
             </div>
-            {/*
-              Replace this div with your GHL calendar embed:
-              <iframe
-                src="YOUR_GHL_CALENDAR_EMBED_URL"
-                width="100%"
-                height="700"
-                frameBorder="0"
-                title="KV Boxing Class Schedule"
-              />
-            */}
-            <div className="flex flex-col items-center justify-center py-20 px-8 text-center">
-              <div
-                className="text-5xl text-primary/20 mb-3"
-                style={{ fontFamily: "var(--font-anton), sans-serif" }}
-              >
-                BOOK ONLINE
-              </div>
-              <p className="text-muted-foreground text-sm mb-1">
-                GHL booking calendar widget goes here.
-              </p>
-              <p className="text-muted-foreground/60 text-xs max-w-sm">
-                Replace this block with your GoHighLevel calendar embed code.
-              </p>
-            </div>
+            <BookingWidget minHeight={700} />
           </div>
 
           {/* Weekly overview */}

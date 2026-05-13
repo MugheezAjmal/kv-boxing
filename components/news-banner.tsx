@@ -17,7 +17,7 @@ export default function NewsBanner() {
           <span className="mx-2 opacity-50">•</span>
           Follow our{" "}
           <a
-            href="https://www.facebook.com/kvboxing3/"
+            href="https://www.facebook.com/kvboxing3"
             target="_blank"
             rel="noopener noreferrer"
             className="underline underline-offset-2 hover:opacity-80"

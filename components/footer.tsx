@@ -16,17 +16,17 @@ const navLinks = [
 
 const socialLinks = [
   {
-    href: "https://instagram.com/kvboxing",
+    href: "https://www.instagram.com/kvboxingclub/",
     label: "Instagram",
     abbr: "IG",
   },
   {
-    href: "https://facebook.com/kvboxing",
+    href: "https://www.facebook.com/kvboxing3",
     label: "Facebook",
     abbr: "FB",
   },
   {
-    href: "https://youtube.com/kvboxing",
+    href: "https://www.youtube.com/@KVBoxing",
     label: "YouTube",
     abbr: "YT",
   },
@@ -92,6 +92,14 @@ export default function Footer() {
             </h3>
             <ul className="space-y-3 text-sm text-muted-foreground">
               <li>1 Market St, Quispamsis, NB</li>
+              <li>
+                <a
+                  href="tel:+15066457976"
+                  className="hover:text-foreground transition-colors"
+                >
+                  506-645-7976
+                </a>
+              </li>
               <li>
                 <a
                   href="mailto:info@kvboxing.com"

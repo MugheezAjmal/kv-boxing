@@ -97,10 +97,10 @@ export default function ContactPage() {
                     Phone
                   </p>
                   <a
-                    href="tel:+15551234567"
+                    href="tel:+15066457976"
                     className="text-foreground text-sm hover:text-primary transition-colors"
                   >
-                    (555) 123-4567
+                    506-645-7976
                   </a>
                 </div>
               </div>
